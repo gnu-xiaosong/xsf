@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        body {
+            box-shadow: .5rem 1rem 1rem 0 rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            color: #333;
+            text-align: center;
+            padding-top:30%;
+            background-image: linear-gradient(to top, #191730, #10131d, #19125f, #050e44);
+        }
+        
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+        }
+        
+        #r{
+            position: fixed;
+            top: 60%;
+            left: 58%;
+            width: 90px;
+            height: auto;
+           // background-color:red;
+        }
+        
+        
+        img {
+            position: fixed;
+            top: 56%;
+            left: 41%;
+            width: 80px;
+            height: auto;
+            animation-name: letter;
+            z-index: 10;
+        }
+        
+        #content{
+           position: relative;
+            top: 100%;
+            left: 10%;
+          width:80%;
+          
+          height:400px;
+          //background-color:red;
+          z-index:20;
+          background-image:url(./static/l.png);
+          background-size:cover;
+          
+        }
+        @keyframes rotate{
+
+    from{transform: rotate(0deg)}
+
+    to{transform: rotate(359deg)}
+}
+
+@keyframes scale{
+
+    from{width: 60px}
+
+    to{width: 90px}
+}
+
+        #b{
+            position: absolute;
+            top: -50px;
+            left: -20px;
+            animation: rotate 3s linear infinite;
+        }
+        
+        #c{
+            position: absolute;
+            bottom: -90px;
+            left: -10px;
+           // animation: scale 3s linear infinite;
+        }
+        
+        h6{
+            position: absolute;
+            top: 7%;
+            left: 12%;
+        }
+        
+        #t{
+            position: absolute;
+            top: 3%;
+            left: 65%;
+        }
+        
+        #g{
+            position: absolute;
+            bottom: 13%;
+            right: 23%;
+        }
+        #close{
+            position: absolute;
+            top: 85%;
+            left: 30%;
+        }
+        p{
+            position: absolute;
+            top: 18%;
+            left: 12%;
+            width:70%;
+            font-size:12px;
+            line-height:150%;
+            text-indant:3em;
+        }
+        
+        
+  @font-face {
+      font-family: 'iconfont';
+  src: url('./font/Smiley_Sans_Oblique_斜体.otf') format('otf'),
+       url('Smiley_Sans_Oblique_斜体.ttf') format('ttf'),
+       url('./font/Smiley_Sans_Oblique_斜体.woff') format('woff');
+}
+        .iconfont{
+    font-family:"iconfont" !important;
+    font-size:12px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+        
+    </style>
+</head>
+
+<body>
+    <video src="./static/bg1.mp4" autoplay preload muted></video>
+
+    <!-- 信封 -->
+    <img id="letter" src="./static/letter_logo.png">
+    <!-- 指示箭头 -->
+    <img id="r" src="./static/receive1.png">
+    
+    
+    <div id="content" style="display:none">
+     <img id="b" src="./static/a.png"/>
+     <img id="c" src="./static/c.png"/>
+     
+      <h6 class="iconfont" id="e">亲爱的燕子小盆友</h6>
+      <img id="t" src="./static/avatar.png"/>
+      <p class="iconfont" id="f">
+      </p>
+      
+      <span class="iconfont" id="g">松松</span>
+      <img id="close" src="./static/close.png"/>
+    </div>
+
+    <script>
+      document.getElementById('letter').addEventListener('click', function () {
+      document.getElementById("content").style.display="block";
+      var c = setInterval(myprint, 100);//定时器
+   })
+   
+   document.getElementById('close').     addEventListener('click', function () {
+      document.getElementById("content").style.display="none";
+   })
+   
+   
+   //播放音乐
+  // var audio = document.createElement("audio");
+   //audio.src = "./static/花海.mp3";
+  // audio.play();
+
+  // var audio = new Audio("hangge.mp3");
+   //audio.play();
+
+ 
+   
+   
+   
+   var index = 0;
+   var element = document.getElementById("f");//获取元素
+   let text="希望你每天都能开开心心，保持那份纯真、快乐、无邪的童心，即使我们已经长大成人，内心深处那份孩童永远不会消逝。愿你在阳光下像个孩子，在风雨中像个成熟的大人，与时光落落为安，只记欢喜不记忧，享受人生的美好时光，保持积极的心态去面对生命中的挑战，永远拥有一颗快乐、纯真和无邪的心，坚定前行！儿童节快乐呦！";
+   function myprint() {
+      if (index < text.length) {
+                element.innerText = element.innerText + text.charAt(index);
+                index++;
+            } else {
+                clearInterval(c);//输出完后关闭定时器
+            }
+   }
+   
+    </script>
+</body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
